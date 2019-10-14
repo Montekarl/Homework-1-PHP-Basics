@@ -34,3 +34,5 @@ iskviesta funkcija grazina int(6), nors tikejausi kad ismes errora. Paieskojes r
 https://www.php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration.strict
 
 declare(strict_types=1) -> veikia tik faile, kuriame yra deklaruotas. Jeigu kvieciama funkcija is kito deklaruoto failo, si netenka galios, nes pagal nutylejima puslapyje galioja weak typing. Ismeginau sitai ikeles deklaracija i savo index.php. Abi, soft typing ir strict typing funkcijos grazino TypeError klaida.
+
+P.S. Dar noreciau pridurti, kad namu darbai, kuriuos siunciau pries tai tikrai neverti 6 (kokiu 4 at best). Noriu pasakyt, aciu, uz gera sirdi :D
