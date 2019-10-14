@@ -15,7 +15,7 @@ Namu darbu uzduotis 1 / PHP Pagrindai
             echo "Klaida: ".$e->getMessage();
         }
 
-1. Root funkcija, PHP automatiskai priskiria kintamojo tipa, priklausomai nuo reikmes. Pvz ‘1’→string, taciau, kadangi nera grieztai nurodoma, koks kintamojo tipas, grazina float reiksme be erroru. 
+1. Root funkcija, PHP automatiskai priskiria kintamojo tipa, priklausomai nuo reiksmes. Pvz ‘1’→string, taciau, kadangi nera grieztai nurodoma, koks kintamojo tipas, grazina float reiksme be erroru. 
  var_dump(calculate(3,2.2,'1')) -> float(6.2)
 
 2. NOT TYPED funkcija: 
