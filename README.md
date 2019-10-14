@@ -1,4 +1,5 @@
 Namu darbu uzduotis 1 / PHP Pagrindai
+
 1.echo "root\calculate: ".calculate(3,2.2,'1') . PHP_EOL;
 
 2. use function nfq\akademija\NotTyped_namespace\calculate as not_typed;
