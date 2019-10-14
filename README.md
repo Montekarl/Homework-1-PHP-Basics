@@ -1,19 +1,20 @@
 Namu darbu uzduotis 1 / PHP Pagrindai
 
-1.echo "root\calculate: ".calculate(3,2.2,'1') . PHP_EOL;
+        1.echo "root\calculate: ".calculate(3,2.2,'1') . PHP_EOL;
 
-2. use function nfq\akademija\NotTyped_namespace\calculate as not_typed;
-echo "nfq\akademija\NotTyped_Namespace\calculate: ".not_typed(3,2.2,'1') . PHP_EOL;
+        2. use function nfq\akademija\NotTyped_namespace\calculate as not_typed;
+        echo "nfq\akademija\NotTyped_Namespace\calculate: ".not_typed(3,2.2,'1') . PHP_EOL;
 
-3. use function nfq\akademija\soft_namespace\calculate as soft;
-echo "nfq\akademija\Soft_Namespace\calculate: ".soft(3,2.2,'1') . PHP_EOL;
+        3. use function nfq\akademija\soft_namespace\calculate as soft;
+        echo "nfq\akademija\Soft_Namespace\calculate: ".soft(3,2.2,'1') . PHP_EOL;
 
-4. use function nfq\akademija\strict_namespace\calculate as strict;
-try{
-    echo "nfq\akademija\Strict_Namespace\calculate: ".strict(3,2.2,'1') . PHP_EOL;
-}catch(TypeError $e){
-    echo "Klaida: ".$e->getMessage();
-}
+        4. use function nfq\akademija\strict_namespace\calculate as strict;
+        try{
+            echo "nfq\akademija\Strict_Namespace\calculate: ".strict(3,2.2,'1') . PHP_EOL;
+        }catch(TypeError $e){
+            echo "Klaida: ".$e->getMessage();
+        }
+
 1. Root funkcija, PHP automatiskai priskiria kintamojo tipa, priklausomai nuo reikmes. Pvz ‘1’→string, taciau, kadangi nera grieztai nurodoma, koks kintamojo tipas, grazina float reiksme be erroru. 
  var_dump(calculate(3,2.2,'1')) -> float(6.2)
 
