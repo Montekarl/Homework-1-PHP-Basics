@@ -1,0 +1,10 @@
+{
+    "autoload" :{
+        "files": ["nfq/akademija/namespaces_not_typed.php",
+                    "nfq/akademija/namespaces_soft.php",
+                        "nfq/akademija/namespaces_strict.php"]
+     },
+    "require": {
+        "league/climate": "^3.5"
+    }
+}
