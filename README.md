@@ -38,10 +38,10 @@ Pastaba: atliekant papildomus veiksmus su grazinta reiksme, reiksmes konvertuoja
         
 3. SOFT_TYPED funkcija 
 
-Naudojamas vadinamas 'Coercive Scalar Type' deklaracija. Veikia taip. 
+Naudojamas vadinama 'Coercive Scalar Type' deklaracija. Veikia taip. 
 
 function calculate(int...$numbers):int, 
-Funkcija iskvieciame su bet kiek, bet kokio tipo argumentu. Funkcija tuomet konvertuoja ivestus argumentus pagal nurodyta type deklaracija (int...). Tuomet funkcijos reiksme konvertuojama i 'return type' deklaracija ir grazinama. 
+Funkcija iskvieciame su bet kiek, bet kokio tipo argumentu. Tuomet konvertuoja ivestus argumentus pagal nurodyta type deklaracija (int...). Tuomet funkcijos reiksme konvertuojama i 'return type' deklaracija ir grazinama. 
 Taigi: 
 calculate(int...$numbers):float
 echo calculate('1', 2.2, 3) -> 1 + 2 + 3 -> konvertuojama i 6.0 
