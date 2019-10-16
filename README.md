@@ -30,7 +30,7 @@ Pries grazinant funkcijos reiksme visi argumentai konvertuojami i deklaracijoje 
                         
        Pvz.: function calculate(...$x):float // ∀ x ∈ R
         
-Pastaba: atliekant papildomus veiksmus su grazinta reiksme, reiksmes konvertuojamos i funkcijos kintamojo tipa. 
+Pastaba (sau): atliekant papildomus veiksmus su grazinta reiksme, reiksmes konvertuojamos i funkcijoje naudota kintamojo tipa. 
 
         return $y+'1.2'; // prie realios reiksmes meginu prideti stringa. 
         echo not_typed(3,2.2,'1');
