@@ -22,7 +22,7 @@ automatiskai priskiriamas labiausiai tinkantis kintamojo tipas
 **Pastaba: Realieji 'stringai' irgi priskiriami realiesiems skaiciams.
 
         *var_dump(calculate(3,2.2,'1')) -> float(6.2)
-        **var_dump(calculate(3,'2.2')) -> float(5.2), siuo pavyzdziu meginau isimti 'naturaluji stringa' ir pameginau paziuret ar realieji stringai irgi konvertuojami. 
+        **var_dump(calculate(3,'2.2')) -> float(5.2), siuo pavyzdziu meginau pakeisti 'naturaluji stringa' i 'realuji stringa' ir  paziuret ar sie irgi konvertuojami i floatus. 
 
 2. NOT TYPED funkcija: 
 
