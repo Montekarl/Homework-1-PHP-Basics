@@ -18,11 +18,11 @@ Namu darbu uzduotis 1 / PHP Pagrindai
 1. Root funkcija:
 
 automatiskai priskiriamas labiausiai tinkantis kintamojo tipas
-*Jei yra realiuju skaiciu - priskirs realiesiems, jei nera priskirs naturaliesiems. 
+*Jei yra realiuju skaiciu - priskirs realiesiems, jei nera priskirs naturaliesiems. <br>
 **Pastaba: Realieji 'stringai' irgi priskiriami realiesiems skaiciams.
 
-*var_dump(calculate(3,2.2,'1')) -> float(6.2)
-**var_dump(calculate(3,'2.2')) -> float(5.2)
+        *var_dump(calculate(3,2.2,'1')) -> float(6.2)
+        **var_dump(calculate(3,'2.2')) -> float(5.2)
 
 2. NOT TYPED funkcija: 
 
