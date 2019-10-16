@@ -15,21 +15,76 @@ Namu darbu uzduotis 1 / PHP Pagrindai
             echo "Klaida: ".$e->getMessage();
         }
 
-1. Root funkcija, PHP automatiskai priskiria kintamojo tipa, priklausomai nuo reiksmes. Pvz ‘1’→string. Kadangi nera grieztai nurodoma, koks kintamojo tipas, grazina float reiksme be erroru. 
- var_dump(calculate(3,2.2,'1')) -> float(6.2)
+1. Root funkcija:
+
+automatiskai priskiriamas labiausiai tinkantis kintamojo tipas
+*Jei yra realiuju skaiciu - priskirs realiesiems, jei nera priskirs naturaliesiems. 
+**Pastaba: Realieji 'stringai' irgi priskiriami realiesiems skaiciams.
+
+*var_dump(calculate(3,2.2,'1')) -> float(6.2)
+**var_dump(calculate(3,'2.2')) -> float(5.2)
 
 2. NOT TYPED funkcija: 
-function calculate(...$numbers):int - grazina naturaluji skaiciu, nes 
-Veikimas: iskvieciame funkcija su bet kiek, bet kokio tipo argumentu, funkcija grazina tipa, kuri norodome type declaracijoje. Pvz. <...>:float, grazins realuji skaiciu. 
 
+Pries grazinant funkcijos reiksme visi argumentai konvertuojami i deklaracijoje nurodyta tipa. 
+                        
+       Pvz.: function calculate(...$x):float // ∀ x ∈ R
+        
+Pastaba: atliekant papildomus veiksmus su grazinta reiksme, reiksmes konvertuojamos i funkcijos kintamojo tipa. 
 
+        return $y+'1.2'; // prie realios reiksmes meginu prideti stringa. 
+        echo not_typed(3,2.2,'1');
+        7.4
+        
 3. SOFT_TYPED funkcija 
+
+Naudojamas vadinamas 'Coercive Scalar Type' deklaracija. Veikia taip. 
+
 function calculate(int...$numbers):int, 
-Veikimas. Funkcija iskvieciame su bet kiek, bet kokio tipo argumentu. Funkcija tikisi naturaliuju skaiciu, taciau jei bus realiuju ar stringu, klaidos neismes, tiesiog priskirs visas reiksmes naturaliuju skaiciu tipui. Rezultatas grazinamas naturaliuju skaiciu tipu, del type deklaracijos :int.  
+Funkcija iskvieciame su bet kiek, bet kokio tipo argumentu. Funkcija tuomet konvertuoja ivestus argumentus pagal nurodyta type deklaracija (int...). Tuomet funkcijos reiksme konvertuojama i 'return type' deklaracija ir grazinama. 
+Taigi: 
+calculate(int...$numbers):float
+echo calculate('1', 2.2, 3) -> 1 + 2 + 3 -> konvertuojama i 6.0 
+Pastaba: rodoma kaip 6, kas gali klaidinti, nors istiesu yra realusis skaicius. 
+var_dump(soft(3,2.2,'1')); ->  float(6)
+
+Jeigu meginsime atlikti papildomus veiksmus su grazinta reiksme, visos papildomos reiksmes konvertuojamos i funkcijos grazinta kintamojo tipa. 
+Pvz. 
+function calculate(int...$numbers):float
+    {
+        $ats = 0;
+        foreach ($numbers as $res)
+            {
+                $ats += $res;
+            }
+       <b><u> return $ats+1; </u></b> 1 bus FLOAT
+    }
+
+Tuomet prieiname vieta, kur svarbu turim strict typing ar ne. 
+
+4. STRICT TYPED funkcija. 
+STRICT tikrina ar funkcijos grazinta reiksme turi tipu konflikta.  
+
+Naming Deklaracija :int ima funkcijos argumentus ir konvertuoja juos i naturaliuosius PRIES grazindama. Taigi jeigu kviesime funkcija strict(3,2.2,'1') konvertuota bus i 6. Jeigu tuomet sakykim pridesim prie return reiksmes realuji skaiciu. 
+
+
 
 4. STRICT TYPED
 Veikimas. Esant “strict type” deklaracijai “soft_typing” funkcija tampa “strict_typing”. Kintamuju tipu neatitikimas fiksuojamas ir grazinama TypeError klaida. 
+
 iskviesta funkcija grazina int(6), nors tikejausi kad ismes errora. Paieskojes radau sitai:
+
+
+            function calculate(int...$numbers):int
+            {
+                $ats = 0;
+                foreach ($numbers as $res)
+                    {
+                        $ats += $res;
+                    }
+                return $ats+1.0;
+            }
+
 
 https://www.php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration.strict
 
