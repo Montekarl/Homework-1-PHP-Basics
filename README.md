@@ -65,7 +65,7 @@ Tuomet prieiname vieta, kur svarbu turim strict typing ar ne.
 4. STRICT TYPED funkcija. 
 STRICT tikrina ar funkcijos grazinta reiksme turi tipu konflikta. Pvz siame pavyzdyje ismes TypeError klaida. 
 
-            function calculate(int...$numbers)<b>:int</b>
+            function calculate(int...$numbers):int
             {
                 $ats = 0;
                 foreach ($numbers as $res)
@@ -78,13 +78,7 @@ STRICT tikrina ar funkcijos grazinta reiksme turi tipu konflikta. Pvz siame pavy
 
 Kadangi NAMING DECLARATION (:int) turetu ∈ N, return reiksme irgi turetu ∈ N. Pridejus realuji skaiciu, atsiranda konfliktas ir metamas erroras. 
 
-Naming Deklaracija :int ima funkcijos argumentus ir konvertuoja juos i naturaliuosius PRIES grazindama. Taigi jeigu kviesime funkcija strict(3,2.2,'1') konvertuota bus i 6. Jeigu tuomet sakykim pridesim prie return reiksmes realuji skaiciu. 
-
-
-
-4. STRICT TYPED
-Veikimas. Esant “strict type” deklaracijai “soft_typing” funkcija tampa “strict_typing”. Kintamuju tipu neatitikimas fiksuojamas ir grazinama TypeError klaida. 
-iskviesta funkcija grazina int(6), nors tikejausi kad ismes errora. Paieskojes radau sitai:
+Namu darbe iskviesta funkcija grazina int(6), nors tikejausi kad ismes errora. Paieskojes radau sitai:
 https://www.php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration.strict
 
 declare(strict_types=1) -> veikia tik faile, kuriame yra deklaruotas. Jeigu kvieciama funkcija is kito deklaruoto failo, si netenka galios, nes pagal nutylejima puslapyje galioja weak typing. Ismeginau sitai ikeles deklaracija i savo index.php. Abi, soft typing ir strict typing funkcijos grazino TypeError klaida.
