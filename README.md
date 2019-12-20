@@ -1,4 +1,4 @@
-Namu darbu uzduotis 1 / PHP Pagrindai
+Namų darbų užduotis 1 / PHP Pagrindai
 
         1.echo "root\calculate: ".calculate(3,2.2,'1') . PHP_EOL;
 
@@ -17,20 +17,20 @@ Namu darbu uzduotis 1 / PHP Pagrindai
 
 1. Root funkcija:
 
-automatiskai priskiriamas labiausiai tinkantis kintamojo tipas
-*Jei yra realiuju skaiciu - priskirs realiesiems, jei nera priskirs naturaliesiems. <br>
-**Pastaba: Realieji 'stringai' irgi priskiriami realiesiems skaiciams.
+automatiškai priskiriamas labiausiai tinkantis kintamojo tipas
+*Jei yra realiųjų skaičių - priskirs realiesiems, jei nėra priskirs natūraliesiems. <br>
+**Pastaba: Realieji 'stringai' irgi priskiriami realiesiems skaičiams.
 
         *var_dump(calculate(3,2.2,'1')) -> float(6.2)
         **var_dump(calculate(3,'2.2')) -> float(5.2), siuo pavyzdziu meginau pakeisti 'naturaluji stringa' i 'realuji stringa' ir  paziuret ar sie irgi konvertuojami i floatus. 
 
 2. NOT TYPED funkcija: 
 
-Pries grazinant funkcijos reiksme visi argumentai konvertuojami i deklaracijoje nurodyta tipa. 
+Prieš grąžinant funkcijos reikšmę visi argumentai konvertuojami į deklaracijoje nurodytą tipą. 
                         
        Pvz.: function calculate(...$x):float // ∀ x ∈ R
         
-Pastaba (sau): atliekant papildomus veiksmus su grazinta reiksme, reiksmes konvertuojamos i funkcijoje naudota kintamojo tipa. 
+Pastaba (sau): atliekant papildomus veiksmus su grąžinta reikšme, šios konvertuojamos į funkcijoje naudotą kintamojo tipą. 
 
         return $y+'1.2'; // prie realios reiksmes meginu prideti stringa. 
         echo not_typed(3,2.2,'1');
@@ -38,17 +38,17 @@ Pastaba (sau): atliekant papildomus veiksmus su grazinta reiksme, reiksmes konve
         
 3. SOFT_TYPED funkcija 
 
-Naudojamas vadinama 'Coercive Scalar Type' deklaracija. Veikia taip. 
+Naudojama vadinama 'Coercive Scalar Type' deklaracija. Veikia taip. 
 
 function calculate(int...$numbers):int, 
-Funkcija iskvieciame su bet kiek, bet kokio tipo argumentu. Tuomet konvertuoja ivestus argumentus pagal nurodyta type deklaracija (int...). Tuomet funkcijos reiksme konvertuojama i 'return type' deklaracija ir grazinama. 
+Funkcija iškviečiame su bet kiek, bet kokio tipo argumentų. Tuomet konvertuoja įvestus argumentus pagal nurodytą type deklaraciją (int...) toliau funkcijos reikšmė konvertuojama į 'return type' deklaracija ir gražinama. 
 Taigi: 
 calculate(int...$numbers):float
-echo calculate('1', 2.2, 3) -> 1 + 2 + 3 -> konvertuojama i 6.0 
-Pastaba: rodoma kaip 6, kas gali klaidinti, nors istiesu yra realusis skaicius. 
+echo calculate('1', 2.2, 3) -> 1 + 2 + 3 -> konvertuojama į 6.0 
+Pastaba: rodoma kaip 6, kas gali klaidinti, nors ištiesų yra realusis skaičius. 
 var_dump(soft(3,2.2,'1')); ->  float(6)
 
-Jeigu meginsime atlikti papildomus veiksmus su grazinta reiksme, visos papildomos reiksmes konvertuojamos i funkcijos grazinta kintamojo tipa. 
+Jeigu meginsime atlikti papildomus veiksmus su gražinta reikšme, visos papildomos reikšmės konvertuojamos į funkcijos gražintą kintamojo tipą. 
 Pvz. 
 function calculate(int...$numbers):float
     {
@@ -60,10 +60,10 @@ function calculate(int...$numbers):float
        <b><u> return $ats+1; </u></b> 1 bus FLOAT
     }
 
-Tuomet prieiname vieta, kur svarbu turim strict typing ar ne. 
+Tuomet prieiname vietą, kur svarbu turim strict typing ar ne. 
 
 4. STRICT TYPED funkcija. 
-STRICT tikrina ar funkcijos grazinta reiksme turi tipu konflikta. Pvz siame pavyzdyje ismes TypeError klaida. 
+STRICT tikrina ar funkcijos gražinta reikmšė turi tipų konfliktą. Pvz šiame pavyzdyje išmes TypeError klaidą. 
 
             function calculate(int...$numbers):int
             {
@@ -76,10 +76,10 @@ STRICT tikrina ar funkcijos grazinta reiksme turi tipu konflikta. Pvz siame pavy
                 return $ats; <- No Type Error
             }
 
-Kadangi NAMING DECLARATION (:int) turetu ∈ N, return reiksme irgi turetu ∈ N. Pridejus realuji skaiciu, atsiranda konfliktas ir metamas erroras. 
+Kadangi NAMING DECLARATION (:int) turėtų ∈ N, return reikšmė irgi turėtų ∈ N. Pridėjus realųjį skaičių, atsiranda konfliktas ir metamas erroras. 
 
-Namu darbe iskviesta funkcija grazina int(6), nors tikejausi kad ismes errora. Paieskojes radau sitai:
+Namų darbe iškviesta funkcija grąžina int(6), nors tikėjausi, kad išmes klaidą. Paieškojęs radau:
 https://www.php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration.strict
 
-declare(strict_types=1) -> veikia tik faile, kuriame yra deklaruotas. Jeigu kvieciama funkcija is kito deklaruoto failo, si netenka galios, nes pagal nutylejima puslapyje galioja weak typing. Ismeginau sitai ikeles deklaracija i savo index.php. Abi, soft typing ir strict typing funkcijos grazino TypeError klaida.
+declare(strict_types=1) -> veikia tik faile, kuriame yra deklaruotas. Jeigu kviečiama funkcija iš kito deklaruoto failo, ši netenka galios, nes pagal nutylėjimą puslapyje galioja weak typing. Išmeginau šitai įkelęs deklaraciją į savo index.php. Abi, soft typing ir strict typing funkcijos grazino TypeError klaidą.
 
