@@ -63,7 +63,7 @@ function calculate(int...$numbers):float
 Tuomet prieiname vietą, kur svarbu turim strict typing ar ne. 
 
 4. STRICT TYPED funkcija. 
-STRICT tikrina ar funkcijos gražinta reikmšė turi tipų konfliktą. Pvz šiame pavyzdyje išmes TypeError klaidą. 
+STRICT tikrina ar funkcijos grąžinta reikmšė turi tipų konfliktą. Pvz šiame pavyzdyje išmes TypeError klaidą. 
 
             function calculate(int...$numbers):int
             {
